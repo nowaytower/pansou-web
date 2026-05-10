@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   panhub:
-    build: .
+    image: ${PANHUB_IMAGE:-ghcr.io/nowaytower/pansou-web:latest}
     container_name: panhub
     restart: unless-stopped
     ports:
@@ -16,6 +16,7 @@ services:
       - NODE_ENV=production
       - PORT=${PORT:-3000}
       - HOST=0.0.0.0
+      # 默认使用当前仓库发布到 GHCR 的镜像；如需固定版本可在 .env 里设置 PANHUB_IMAGE
       # 前后端同域部署保持 /api；前后端分离时改为完整后端地址
       - NUXT_PUBLIC_API_BASE=${NUXT_PUBLIC_API_BASE:-/api}
       # 前端对外访问地址，用于 canonical / OG / sitemap
