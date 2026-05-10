@@ -63,14 +63,23 @@
 ### 方式三：Docker 部署
 
 ```bash
-# 快速启动
-docker run --name panhub -p 3000:3000 -d ghcr.io/wu529778790/panhub.shenzjd.com:latest
+# 快速启动（把镜像地址替换成你自己仓库发布出的 GHCR 镜像）
+docker run --name panhub -p 3000:3000 -d ghcr.io/<你的 GitHub 用户名>/<你的仓库名>:latest
 
 # 数据持久化（推荐）
 mkdir -p /root/panhub/data
+
 docker run -d --name panhub -p 3000:3000 \
+  -e NUXT_PUBLIC_API_BASE=/api \
+  -e NUXT_PUBLIC_SITE_URL=https://你的前端域名 \
   -v /root/panhub/data:/app/data \
-  ghcr.io/wu529778790/panhub.shenzjd.com:latest
+  ghcr.io/<你的 GitHub 用户名>/<你的仓库名>:latest
+```
+
+如果前后端分离部署，把 `NUXT_PUBLIC_API_BASE` 改成完整后端地址，例如：
+
+```bash
+-e NUXT_PUBLIC_API_BASE=https://api.example.com/api
 ```
 
 ### 方式四：本地开发
@@ -150,6 +159,8 @@ NUXT_PUBLIC_SITE_URL=https://web.example.com
 ```
 
 仓库根目录新增了 `.env.example`，可直接复制为 `.env` 后修改。
+
+Docker Compose 可直接使用项目根目录 `.env` 里的这两个变量，无需额外改 compose 文件路径。
 
 ---
 

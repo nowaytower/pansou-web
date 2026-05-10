@@ -11,6 +11,8 @@ on:
         "**/*.vue",
         "package.json",
         "pnpm-lock.yaml",
+        "config/**/*.ts",
+        ".env.example",
       ]
   workflow_dispatch:
 
