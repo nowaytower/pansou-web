@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   panhub:
     image: ${PANHUB_IMAGE:-ghcr.io/nowaytower/pansou-web:latest}
