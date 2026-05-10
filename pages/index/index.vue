@@ -197,7 +197,7 @@ useHead({
 // 搜索相关状态
 const kw = ref("");
 const placeholder =
-  "搜索网盘资源，支持百度云、阿里云盘、夸克网盘、115网盘、迅雷云盘、天翼云盘、123网盘、移动云盘、UC网盘等";
+  "搜索网盘资源，支持百度云、阿里云盘、夸克网盘、115网盘、迅雷云盘、天翼云盘、123网盘、移动云盘、UC网盘、光鸭云盘、PikPak、磁力链接、电驴链接等";
 
 // 排序和过滤
 const sortType = ref<"default" | "date-desc" | "date-asc" | "name-asc" | "name-desc">("default");

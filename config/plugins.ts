@@ -26,6 +26,10 @@ export const PLATFORM_INFO: Record<
   tianyi: { name: "天翼云盘", color: "#ec4899", icon: "/icons/tianyi.png" },
   "123": { name: "123网盘", color: "#10b981", icon: "/icons/123.png" },
   mobile: { name: "移动云盘", color: "#0ea5e9", icon: "/icons/mobile.png" },
+  guangya: { name: "光鸭云盘", color: "#14b8a6", icon: "/icons/guangya.svg" },
+  pikpak: { name: "PikPak", color: "#8b5cf6", icon: "/icons/pikpak.svg" },
+  magnet: { name: "磁力链接", color: "#ef4444", icon: "/icons/magnet.svg" },
+  ed2k: { name: "电驴链接", color: "#111827", icon: "/icons/ed2k.svg" },
   others: { name: "其他网盘", color: "#6b7280", icon: "/icons/others.png" },
 };
 
