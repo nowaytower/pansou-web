@@ -122,10 +122,36 @@ pnpm build
 
 | 变量名 | 默认值 | 说明 |
 |--------|--------|------|
+| `NUXT_PUBLIC_API_BASE` | `/api` | 前端请求的后端基础地址；同域部署保持 `/api`，前后端分离时可改成 `https://api.example.com/api` |
+| `NUXT_PUBLIC_SITE_URL` | `https://panhub.shenzjd.com` | 当前前端站点地址，用于 canonical、OG 图、sitemap |
 | `LOG_LEVEL` | `info` | 日志级别（debug/info/warn/error） |
 | `NITRO_PRESET` | auto-detect | 部署预设（vercel/cloudflare/docker） |
 | `PORT` | `3000` | 服务端口 |
 | `SEARCH_PASSWORD` | 空 | 非空时启用密码门，搜索时需输入正确密码（Cookie 30 天有效） |
+
+### 前后端分离示例
+
+前端和后端同域部署时，保持默认值即可：
+
+```env
+NUXT_PUBLIC_API_BASE=/api
+NUXT_PUBLIC_SITE_URL=https://你的前端域名
+```
+
+如果前端与后端分开部署，例如：
+- 前端：`https://web.example.com`
+- 后端：`https://api.example.com/api`
+
+则可这样填写：
+
+```env
+NUXT_PUBLIC_API_BASE=https://api.example.com/api
+NUXT_PUBLIC_SITE_URL=https://web.example.com
+```
+
+仓库根目录新增了 `.env.example`，可直接复制为 `.env` 后修改。
+
+---
 
 ---
 

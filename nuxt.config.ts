@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import channelsConfig from "./config/channels.json";
+import { getPublicRuntimeConfig } from "./config/runtime";
+
+const publicRuntimeConfig = getPublicRuntimeConfig();
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
@@ -67,8 +70,7 @@ export default defineNuxtConfig({
     cacheEnabled: true,
     cacheTtlMinutes: channelsConfig.cacheTtlMinutes,
     public: {
-      apiBase: "/api",
-      siteUrl: "https://panhub.shenzjd.com",
+      ...publicRuntimeConfig,
       // 向前端暴露默认频道清单
       tgDefaultChannels: channelsConfig.defaultChannels,
     },
